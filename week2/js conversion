@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Temperature Converter</title>
+</head>
+<body>
+    <h1>Temperature Converter</h1>
+
+    <label for="celsius">Enter Temperature in Celsius: </label>
+    <input type="text" id="celsius" placeholder="Enter temperature in °C">
+    <button onclick="convertTemperature()">Convert</button>
+
+    <p id="result"></p>
+
+    <script>
+        function convertTemperature() {
+            // Get the input value (degrees Celsius) and convert it to a number
+            var celsius = parseFloat(document.getElementById("celsius").value);
+
+            // Check if the input is a valid number
+            if (!isNaN(celsius)) {
+                // Use the conversion formula to calculate degrees Fahrenheit
+                var fahrenheit = (celsius * 9/5) + 32;
+
+                // Display the result on the page
+                var resultElement = document.getElementById("result");
+                resultElement.innerHTML = celsius + "°C is equal to " + fahrenheit.toFixed(2) + "°F.";
+            } else {
+                // Display an error message if the input is not a valid number
+                var resultElement = document.getElementById("result");
+                resultElement.innerHTML = "Please enter a valid temperature in Celsius.";
+            }
+        }
+    </script>
+</body>
+</html>
