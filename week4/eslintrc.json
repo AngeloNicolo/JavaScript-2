@@ -1,5 +1,14 @@
-let x = "BC Ko";
-
-let x = 0;
-
-console.log(x);
+{
+    "env": {
+      "browser": true,
+      "node": true,
+      "es6": true
+    },
+    "extends": "eslint:recommended",
+    "rules": {
+      "no-unused-vars": "error",          // Require variables to be used
+      "no-undef": "error",                // Require variables to be declared
+      "camelcase": "error"                // Enforce camelCase for variable names
+    }
+  }
+  
