@@ -1,14 +1,56 @@
-{
-    "env": {
-      "browser": true,
-      "node": true,
-      "es6": true
-    },
-    "extends": "eslint:recommended",
-    "rules": {
-      "no-unused-vars": "error",          // Require variables to be used
-      "no-undef": "error",                // Require variables to be declared
-      "camelcase": "error"                // Enforce camelCase for variable names
-    }
+// Variables should use camelCase
+let myVariable = 42;
+let my_variable = 42; // Should produce an error
+
+// Variables should be declared before use
+console.log(myVar); // Should produce an error
+let myVar = 42;
+
+// Variables should not be initialized to undefined
+let someVar = undefined; // Should produce an error
+
+// Unused variables should be identified
+let usedVar = 42;
+// unusedVar is not used and should produce an error
+
+// Variables inside functions should follow the same rules
+function myFunction() {
+  let my_variable = 42; // Should produce an error
+}
+
+// Destructuring with camelCase
+const { my_value } = someObject; // Should produce an error
+
+// Objects with camelCase property names
+const myObject = { my_property: 42 }; // Should produce an error
+
+// Variables in function parameters
+function myFunction(param_1) { // Should produce an error
+  console.log(param1);
+}
+
+// Unused function parameters
+function myFunction(usedParam, unusedParam) {
+  console.log(usedParam);
+  // unusedParam is not used and should produce an error
+}
+
+//  Variables in class properties
+class MyClass {
+  constructor() {
+    this.my_property = 42; // Should produce an error
   }
-  
+}
+
+//  Variables in class methods
+class MyClass {
+  myMethod() {
+    this.my_property = 42; // Should produce an error
+  }
+}
+
+//  Variables in JSX attributes
+<MyComponent some_attribute={some_value} /> // Should produce an error
+
+//  Variables in destructuring assignment
+const { prop_1: my_variable } = someObject; // Should produce an error
